@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<meta name="description"  content="**_____**">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript">
+       	$(document).ready(function(){
+          alert("javascript!")
+
+          $("form").submit(function(){
+            // $("#contact").append("<div class='contactInfo well'>" + 
+            //   "<h1 class='name'>" + $("#firstName").val() + " " + $("#lastName").val() + "<br><small>Click for Description</small></h1>" + "<p class='description hidden'>" + $("#description").val() + "</p>" + "</div>");
+
+                    $("#contact").append("<div class='contact_info well'>"+
+          "<h1 class='name'>" + $("#firstName").val() + " " + $("#lastName").val() + 
+          "<br><small>Click for description</small></h1>"+
+          "<p class='description hidden'>" + $("#description").val() + "</p>"+
+          "</div>");
+
+            return false;
+          });
+
+          // $("#contact").on("click", ".contactInfo", function(){
+          //   $(this).html("<p>" + $(this).data("description") + "</p>")
+
+          // });
+
+          $("#contact").on("click", ".contact_info", function(){
+            $(this).find('p.description').toggleClass("hidden");
+            $(this).find('h1.name').toggleClass("hidden");
+          });
+
+       	});  // end of (document).ready
+    	
+    </script>
+</head>
+<body>
+  	<div class="container">
+      <div class="span4"
+        <h3>Enter contanct info</h3>
+          <form>
+            <label for="firstName">First Name</label>
+            <div class="controls">
+              <input type="text" id="firstName"/>
+            </div> <!-- end of controls -->
+
+            <label for="lastName">Last Name</label>
+              <div class="controls">
+                <input type="text" id="lastName"/>
+              </div> <!-- end of controls -->
+
+              <label for="description">Description</label>
+            <div class="controls">
+              <textarea name="" id="description" cols="10" rows="3"></textarea>
+            </div> <!-- end of controls -->
+            <input type="submit" value="submit" class="btn btn-success"/>
+          </form>
+        </div><!-- end of span 4 -->
+        <div id="contact" class="span4">
+          <h3 id="contact_header">Contact Information</h3>
+        </div><!-- end of span 4 -->
+
+
+
+	
+	</div><!--end of container -->
+</body>
+</html>
